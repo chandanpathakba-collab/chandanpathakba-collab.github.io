@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chandan Pathak — Senior Product Leader</title>
+<meta name="description" content="15+ years leading product strategy across AEC/O, Insurance, Automotive, and Capital Markets. Currently at Nemetschek Group."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#09090E;
+  --bg2:#111118;
+  --bg3:#18181F;
+  --bg4:#1F1F28;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.11);
+  --gold:#C8A45A;
+  --gold2:#E2C47C;
+  --gold-bg:rgba(200,164,90,0.09);
+  --text:#EDE8DF;
+  --muted:#85859A;
+  --muted2:#4A4A5C;
+  --teal:#38C9B0;
+  --teal-bg:rgba(56,201,176,0.08);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--muted2);border-radius:4px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 56px;height:64px;background:rgba(9,9,14,0.82);backdrop-filter:blur(16px);border-bottom:0.5px solid var(--border)}
+.nav-logo{font-size:16px;font-weight:600;letter-spacing:0.1em;color:var(--gold)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;letter-spacing:0.02em;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{padding:8px 18px;background:var(--gold);color:var(--bg)!important;font-size:12px;font-weight:600;letter-spacing:0.05em;border-radius:4px;transition:background 0.2s!important}
+.nav-cta:hover{background:var(--gold2)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--bg2);z-index:199;padding:32px 24px;flex-direction:column;gap:24px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--text);text-decoration:none;font-size:18px;font-weight:500;border-bottom:0.5px solid var(--border);padding-bottom:20px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 56px 80px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-150px;right:-80px;width:700px;height:700px;background:radial-gradient(ellipse at center,rgba(200,164,90,0.07) 0%,transparent 65%);pointer-events:none;z-index:0}
+.hero-glow2{position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(ellipse at center,rgba(56,201,176,0.04) 0%,transparent 65%);pointer-events:none;z-index:0}
+.hero-inner{position:relative;z-index:1;max-width:900px}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+.hero-name{font-size:clamp(44px,7vw,88px);font-weight:600;line-height:1.0;letter-spacing:-0.03em;margin-bottom:16px}
+.hero-name em{font-style:normal;color:var(--gold)}
+.hero-tagline{font-size:clamp(16px,2vw,22px);font-weight:300;color:var(--muted);margin-bottom:24px;max-width:600px;line-height:1.5}
+.hero-desc{max-width:560px;color:var(--muted);font-size:14px;line-height:1.9;margin-bottom:44px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:72px}
+.btn-primary{padding:13px 28px;background:var(--gold);color:var(--bg);font-family:'Sora',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;border:none;border-radius:4px;cursor:pointer;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-ghost{padding:13px 28px;background:transparent;color:var(--text);font-family:'Sora',sans-serif;font-size:13px;font-weight:400;border:0.5px solid var(--border2);border-radius:4px;cursor:pointer;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);position:relative;z-index:1}
+.stat-cell{padding:36px 0;border-right:0.5px solid var(--border)}
+.stat-cell:last-child{border-right:none}
+.stat-cell:not(:first-child){padding-left:36px}
+.stat-num{font-size:38px;font-weight:600;color:var(--gold);letter-spacing:-0.03em;line-height:1}
+.stat-label{font-size:12px;color:var(--muted);margin-top:6px;letter-spacing:0.02em}
+
+/* SECTION BASE */
+section{padding:100px 56px}
+.s-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.s-tag::before{content:'';display:block;width:20px;height:1px;background:var(--gold)}
+.s-title{font-size:clamp(28px,3.5vw,44px);font-weight:600;letter-spacing:-0.025em;line-height:1.1;margin-bottom:12px}
+.s-sub{font-size:14px;color:var(--muted);max-width:500px;margin-bottom:56px;line-height:1.8}
+
+/* EXPERIENCE */
+#experience{background:var(--bg)}
+.exp-layout{display:grid;grid-template-columns:260px 1fr;gap:0}
+.exp-nav{border-right:0.5px solid var(--border);padding-right:0}
+.exp-nav-item{padding:20px 24px 20px 0;border-bottom:0.5px solid var(--border);cursor:pointer;transition:all 0.2s;position:relative}
+.exp-nav-item:last-child{border-bottom:none}
+.exp-nav-item::before{content:'';position:absolute;left:-1px;top:0;bottom:0;width:2px;background:var(--gold);opacity:0;transition:opacity 0.2s}
+.exp-nav-item.active::before{opacity:1}
+.exp-nav-item.active .exp-nav-company{color:var(--gold)}
+.exp-nav-company{font-size:14px;font-weight:500;margin-bottom:4px;transition:color 0.2s}
+.exp-nav-period{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.05em}
+.exp-nav-domain{font-size:11px;color:var(--muted2);margin-top:3px}
+.exp-content{padding-left:52px}
+.exp-panel{display:none;animation:fadeUp 0.3s ease}
+.exp-panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.exp-company{font-size:26px;font-weight:600;letter-spacing:-0.02em;margin-bottom:4px}
+.exp-role-title{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold);margin-bottom:4px}
+.exp-meta{font-size:12px;color:var(--muted);margin-bottom:32px}
+.exp-bullets{list-style:none}
+.exp-bullets li{font-size:14px;color:var(--muted);padding:12px 0 12px 20px;border-bottom:0.5px solid var(--border);position:relative;line-height:1.7}
+.exp-bullets li:last-child{border-bottom:none}
+.exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:12px;top:14px}
+.metric-badge{display:inline-block;background:var(--gold-bg);color:var(--gold);font-family:'DM Mono',monospace;font-size:11px;font-weight:400;padding:2px 8px;border-radius:3px;margin-left:6px;white-space:nowrap}
+
+/* CASE STUDIES */
+#work{background:var(--bg2)}
+.cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.case-card{background:var(--bg2);padding:40px;transition:background 0.25s;position:relative;overflow:hidden}
+.case-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.case-card:hover{background:var(--bg3)}
+.case-card:hover::after{transform:scaleX(1)}
+.case-ind{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.case-title{font-size:19px;font-weight:600;letter-spacing:-0.01em;margin-bottom:10px;line-height:1.3}
+.case-desc{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.case-results{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.result-chip{font-family:'DM Mono',monospace;font-size:12px;color:var(--gold);background:var(--gold-bg);padding:5px 12px;border-radius:3px}
+.case-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:0.5px solid var(--border)}
+.case-role{font-size:11px;color:var(--muted2)}
+.case-arrow{color:var(--gold);font-size:18px;transition:transform 0.2s}
+.case-card:hover .case-arrow{transform:translateX(4px)}
+
+/* PRODUCT / GUMROAD */
+#products{background:var(--bg)}
+.product-card{display:grid;grid-template-columns:200px 1fr;border:0.5px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color 0.2s}
+.product-card:hover{border-color:var(--gold)}
+.product-visual{background:linear-gradient(135deg,rgba(200,164,90,0.12),rgba(56,201,176,0.07));display:flex;align-items:center;justify-content:center;padding:40px}
+.product-icon-wrap{width:72px;height:72px;background:var(--gold-bg);border:0.5px solid rgba(200,164,90,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:32px}
+.product-body{padding:40px}
+.product-name{font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:6px}
+.product-tagline{font-family:'DM Mono',monospace;font-size:12px;color:var(--gold);margin-bottom:16px}
+.product-desc{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;max-width:560px}
+.product-includes{margin-bottom:24px}
+.product-includes-title{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px}
+.product-chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.product-chip{font-size:12px;padding:4px 12px;background:var(--bg3);border:0.5px solid var(--border);border-radius:3px;color:var(--muted)}
+.btn-gumroad{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--gold);color:var(--bg);font-size:12px;font-weight:600;letter-spacing:0.05em;border-radius:4px;text-decoration:none;transition:all 0.2s}
+.btn-gumroad:hover{background:var(--gold2)}
+
+/* SKILLS */
+#skills{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-group{background:var(--bg3);border:0.5px solid var(--border);border-radius:6px;padding:28px}
+.sg-title{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.skill-tag{display:inline-block;font-size:12px;padding:5px 11px;background:rgba(255,255,255,0.03);border:0.5px solid var(--border);border-radius:3px;color:var(--muted);margin:0 5px 8px 0;transition:all 0.2s}
+.skill-tag:hover{border-color:var(--gold);color:var(--text)}
+.tools-row{display:flex;flex-wrap:wrap;gap:8px}
+
+/* CERTS */
+#certs{background:var(--bg)}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cert-card{border:0.5px solid var(--border);border-radius:6px;padding:24px;background:var(--bg2);transition:border-color 0.2s}
+.cert-card:hover{border-color:var(--border2)}
+.cert-issuer{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px}
+.cert-name{font-size:13px;font-weight:500;line-height:1.5}
+
+/* TIMELINE */
+#timeline{background:var(--bg2)}
+.tl-items{position:relative;padding-left:28px}
+.tl-items::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:40px}
+.tl-item::before{content:'';position:absolute;left:-32px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(200,164,90,0.4)}
+.tl-year{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);margin-bottom:6px;letter-spacing:0.1em}
+.tl-company{font-size:17px;font-weight:600;letter-spacing:-0.01em}
+.tl-role{font-size:13px;color:var(--muted);margin-bottom:8px}
+.tl-outcome{font-size:13px;color:var(--muted2);background:var(--bg3);border-left:2px solid var(--gold);padding:8px 14px;border-radius:0 4px 4px 0;display:inline-block}
+
+/* CONTACT */
+#contact{background:var(--bg3);text-align:center}
+.contact-inner{max-width:640px;margin:0 auto}
+.contact-big{font-size:clamp(32px,5vw,58px);font-weight:600;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+.contact-big em{font-style:normal;color:var(--gold)}
+.contact-sub{color:var(--muted);font-size:14px;margin-bottom:44px;line-height:1.8}
+.contact-grid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:8px;padding:12px 22px;border:0.5px solid var(--border2);border-radius:4px;color:var(--text);text-decoration:none;font-size:13px;background:var(--bg2);transition:all 0.2s}
+.contact-link:hover{border-color:var(--gold);color:var(--gold)}
+.contact-link svg{width:16px;height:16px;fill:currentColor}
+
+/* FOOTER */
+footer{padding:28px 56px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted2)}
+footer a{color:var(--muted);text-decoration:none;transition:color 0.2s}
+footer a:hover{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{padding:100px 20px 60px}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .stat-cell:nth-child(2){border-right:none}
+  section{padding:64px 20px}
+  .exp-layout{grid-template-columns:1fr}
+  .exp-nav{border-right:none;border-bottom:0.5px solid var(--border);padding-bottom:24px;margin-bottom:32px;display:flex;flex-wrap:wrap;gap:8px}
+  .exp-nav-item{border-bottom:none;padding:10px 14px;border:0.5px solid var(--border);border-radius:4px;flex:0 0 auto}
+  .exp-nav-item::before{display:none}
+  .exp-nav-item.active{border-color:var(--gold);background:var(--gold-bg)}
+  .exp-content{padding-left:0}
+  .cases-grid{grid-template-columns:1fr}
+  .product-card{grid-template-columns:1fr}
+  .product-visual{min-height:100px}
+  .skills-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:repeat(2,1fr)}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px}
+}
+@media(max-width:480px){
+  .cert-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">CP</div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#work">Case Studies</a>
+    <a href="#products">Products</a>
+    <a href="#skills">Skills</a>
+    <a href="resume.html" target="_blank">1-Page CV</a>
+    <a href="#contact" class="nav-cta">Let's Talk</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()" id="ham">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#work" onclick="closeMenu()">Case Studies</a>
+  <a href="#products" onclick="closeMenu()">Products</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="resume.html" target="_blank">1-Page CV</a>
+  <a href="#contact" onclick="closeMenu()">Let's Talk</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Senior Product Leader &nbsp;·&nbsp; AEC/O · Insurance · Capital Markets</div>
+    <h1 class="hero-name">Chandan<br/><em>Pathak</em></h1>
+    <p class="hero-tagline">Building products that scale industries.</p>
+    <p class="hero-desc">15+ years turning complex enterprise problems into shipped, measurable products. Currently driving digital twin platforms at Nemetschek Group. Mentor, speaker, and creator of battle-tested PM frameworks used globally.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">View Case Studies &rarr;</a>
+      <a href="resume.html" target="_blank" class="btn-ghost">1-Page Resume</a>
+      <a href="https://cp8585.gumroad.com/l/innercircle" target="_blank" class="btn-ghost">CP Inner Circle &nearr;</a>
+    </div>
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Years in product</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">$10M+</div>
+        <div class="stat-label">Cost savings driven</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Industries led</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">56%</div>
+        <div class="stat-label">Peak retention lift</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="s-tag">Professional Experience</div>
+  <h2 class="s-title">Where I've built.</h2>
+  <p class="s-sub">Across enterprise AEC/O, insurance, automotive, and capital markets — from analyst to product leader.</p>
+  <div class="exp-layout">
+    <div class="exp-nav">
+      <div class="exp-nav-item active" onclick="showExp('nemetschek', this)">
+        <div class="exp-nav-company">Nemetschek Group</div>
+        <div class="exp-nav-period">Oct 2023 – Present</div>
+        <div class="exp-nav-domain">AEC/O · Digital Twin</div>
+      </div>
+      <div class="exp-nav-item" onclick="showExp('vm', this)">
+        <div class="exp-nav-company">Value Momentum</div>
+        <div class="exp-nav-period">Dec 2017 – Sep 2023</div>
+        <div class="exp-nav-domain">Insurance & FinServ</div>
+      </div>
+      <div class="exp-nav-item" onclick="showExp('ness', this)">
+        <div class="exp-nav-company">Ness Technologies</div>
+        <div class="exp-nav-period">Apr 2016 – Nov 2017</div>
+        <div class="exp-nav-domain">Automotive</div>
+      </div>
+      <div class="exp-nav-item" onclick="showExp('broadridge', this)">
+        <div class="exp-nav-company">Broadridge Financial</div>
+        <div class="exp-nav-period">Aug 2009 – Mar 2016</div>
+        <div class="exp-nav-domain">Capital Markets</div>
+      </div>
+    </div>
+    <div class="exp-content">
+      <div class="exp-panel active" id="exp-nemetschek">
+        <div class="exp-company">Nemetschek Group</div>
+        <div class="exp-role-title">Product Manager</div>
+        <div class="exp-meta">AEC/O Domain &nbsp;·&nbsp; Oct 2023 – Present &nbsp;·&nbsp; Global</div>
+        <ul class="exp-bullets">
+          <li>Leading design and execution of digital twin platforms delivering predictive maintenance, ESG analytics, and operational cost reduction for global facility portfolios.</li>
+          <li>Defined multi-year product roadmap aligned with business goals, translating vision into scalable technical execution across distributed engineering teams.</li>
+          <li>Built executive stakeholder alignment across global teams to prioritize high-impact initiatives — balancing short-term delivery with long-term platform strategy.</li>
+          <li>Delivered inspection and asset digitization workflows with inclusive UX designed for elderly and non-technical users in the field.</li>
+          <li>Conducted deep competitive analysis against <span class="metric-badge">Autodesk</span> <span class="metric-badge">iTwin</span> <span class="metric-badge">IBM Maximo</span> <span class="metric-badge">Planon</span> to fine-tune market positioning.</li>
+          <li>Championed OPEN BIM open standards to drive industry-wide interoperability and adoption.</li>
+          <li>Oversaw data visualization and dashboarding initiatives for ROI, compliance, and sustainability insights.</li>
+        </ul>
+      </div>
+      <div class="exp-panel" id="exp-vm">
+        <div class="exp-company">Value Momentum</div>
+        <div class="exp-role-title">Senior Domain Lead – Product Management & Strategy</div>
+        <div class="exp-meta">Insurance & Financial Services &nbsp;·&nbsp; Dec 2017 – Sep 2023 &nbsp;·&nbsp; 6 Years</div>
+        <ul class="exp-bullets">
+          <li>Spearheaded scalable solutions for GEICO enabling <span class="metric-badge">$5–$10M annual savings</span> and boosting customer acquisition by <span class="metric-badge">+15%</span>.</li>
+          <li>Reimagined UX for digital insurance platforms — increased user engagement by <span class="metric-badge">+10%</span> and referral sales by <span class="metric-badge">+5%</span>.</li>
+          <li>Defined disaster recovery and security strategies, mitigating cyber risk by <span class="metric-badge">−60%</span> while maintaining uninterrupted service delivery.</li>
+          <li>Collaborated across sales, engineering, and executive leadership to define pricing and go-to-market strategies for new product lines.</li>
+          <li>Mentored and grew cross-functional product and BA teams, establishing a culture of ownership and data-driven decision-making.</li>
+        </ul>
+      </div>
+      <div class="exp-panel" id="exp-ness">
+        <div class="exp-company">Ness Technologies</div>
+        <div class="exp-role-title">Lead Business Analyst</div>
+        <div class="exp-meta">Automotive Domain &nbsp;·&nbsp; Apr 2016 – Nov 2017</div>
+        <ul class="exp-bullets">
+          <li>Delivered advanced analytics solutions for vehicle registration and insurance models, enhancing market alignment and pricing accuracy.</li>
+          <li>Designed usage-based insurance (UBI) frameworks with telematics integration — improved customer retention by <span class="metric-badge">+56% YoY</span>.</li>
+          <li>Bridged business and engineering teams to deliver high-fidelity requirements with rapid iteration cycles in an Agile environment.</li>
+        </ul>
+      </div>
+      <div class="exp-panel" id="exp-broadridge">
+        <div class="exp-company">Broadridge Financial Solutions</div>
+        <div class="exp-role-title">Business Analyst & Team Lead</div>
+        <div class="exp-meta">Capital Markets &nbsp;·&nbsp; Aug 2009 – Mar 2016 &nbsp;·&nbsp; 7 Years</div>
+        <ul class="exp-bullets">
+          <li>Drove transformation of financial proxy platforms for Fortune 500 clients, improving compliance posture and operational agility across global markets.</li>
+          <li>Led discovery, documentation, and delivery of user-centric features spanning North America, Europe, and Asia-Pacific markets.</li>
+          <li>Grew from individual contributor to Team Lead, managing a team of BAs and coordinating delivery across multiple concurrent workstreams.</li>
+          <li>Built foundational expertise in financial services regulatory compliance, proxy voting systems, and enterprise SaaS delivery.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="work">
+  <div class="s-tag">Case Studies</div>
+  <h2 class="s-title">Problems I've solved.</h2>
+  <p class="s-sub">Selected deep-dives into the thinking, decisions, and outcomes behind key product initiatives.</p>
+  <div class="cases-grid">
+    <div class="case-card">
+      <div class="case-ind">AEC/O · Digital Twin · 2023–Present</div>
+      <div class="case-title">Digital Twin Platform for Global Facility Management</div>
+      <div class="case-desc">Led end-to-end strategy for a predictive maintenance and ESG analytics platform at Nemetschek. Navigated competitive pressure from Autodesk and IBM Maximo while driving adoption of open standards (OPEN BIM) across enterprise clients.</div>
+      <div class="case-results">
+        <span class="result-chip">Multi-year roadmap</span>
+        <span class="result-chip">OPEN BIM adoption</span>
+        <span class="result-chip">ESG dashboards shipped</span>
+      </div>
+      <div class="case-bottom">
+        <span class="case-role">Product Manager · Nemetschek Group</span>
+        <span class="case-arrow">→</span>
+      </div>
+    </div>
+    <div class="case-card">
+      <div class="case-ind">Insurance · B2B SaaS · 2020–2022</div>
+      <div class="case-title">$10M Cost Reduction: GEICO Insurance Platform Redesign</div>
+      <div class="case-desc">Spearheaded the redesign of digital insurance platforms for GEICO — rethinking customer acquisition flows, UX, and backend resilience. Delivered measurable cost savings while improving engagement and referral conversion.</div>
+      <div class="case-results">
+        <span class="result-chip">$5–10M annual savings</span>
+        <span class="result-chip">+15% acquisition</span>
+        <span class="result-chip">+10% engagement</span>
+      </div>
+      <div class="case-bottom">
+        <span class="case-role">Sr. Domain Lead · Value Momentum</span>
+        <span class="case-arrow">→</span>
+      </div>
+    </div>
+    <div class="case-card">
+      <div class="case-ind">Automotive · Insurtech · 2016–2017</div>
+      <div class="case-title">Usage-Based Insurance with Telematics</div>
+      <div class="case-desc">Designed a UBI framework leveraging telematics data to personalize insurance pricing by driving behaviour. Worked with data science and engineering to translate raw telemetry into risk models that directly improved retention.</div>
+      <div class="case-results">
+        <span class="result-chip">+56% retention YoY</span>
+        <span class="result-chip">Telematics integration</span>
+        <span class="result-chip">UBI framework</span>
+      </div>
+      <div class="case-bottom">
+        <span class="case-role">Lead BA · Ness Technologies</span>
+        <span class="case-arrow">→</span>
+      </div>
+    </div>
+    <div class="case-card">
+      <div class="case-ind">Capital Markets · Enterprise · 2009–2016</div>
+      <div class="case-title">Financial Proxy Platform Transformation for Fortune 500</div>
+      <div class="case-desc">Drove multi-year transformation of global proxy voting infrastructure for Fortune 500 financial clients at Broadridge — improving compliance, operational agility, and cross-border usability across 3 continents.</div>
+      <div class="case-results">
+        <span class="result-chip">Fortune 500 clients</span>
+        <span class="result-chip">Global compliance</span>
+        <span class="result-chip">3-continent rollout</span>
+      </div>
+      <div class="case-bottom">
+        <span class="case-role">BA & Team Lead · Broadridge Financial</span>
+        <span class="case-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUMROAD PRODUCT -->
+<section id="products">
+  <div class="s-tag">Creator / Products</div>
+  <h2 class="s-title">Beyond the day job.</h2>
+  <p class="s-sub">Battle-tested PM resources distilled from 15 years in the trenches — now available to the global product community.</p>
+  <div class="product-card">
+    <div class="product-visual">
+      <div class="product-icon-wrap">&#128218;</div>
+    </div>
+    <div class="product-body">
+      <div class="product-name">CP Inner Circle</div>
+      <div class="product-tagline">// Skip the trial and error. Get what actually works.</div>
+      <p class="product-desc">An always-growing vault of actionable templates, in-depth guides, and exclusive frameworks for PMs at every level. Whether you're navigating AI adoption, building product strategy, or stepping into leadership — these are the resources I wish I had 15 years ago. One payment. Unlimited access. Real results.</p>
+      <div class="product-includes">
+        <div class="product-includes-title">What's inside</div>
+        <div class="product-chip-row">
+          <span class="product-chip">Actionable Templates</span>
+          <span class="product-chip">In-Depth Guides</span>
+          <span class="product-chip">Exclusive Frameworks</span>
+          <span class="product-chip">AI Adoption Playbooks</span>
+          <span class="product-chip">Product Strategy Resources</span>
+          <span class="product-chip">Leadership Frameworks</span>
+        </div>
+      </div>
+      <a href="https://cp8585.gumroad.com/l/innercircle" target="_blank" class="btn-gumroad">Access CP Inner Circle &nearr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="s-tag">Skills & Tools</div>
+  <h2 class="s-title">How I work.</h2>
+  <p class="s-sub">Cross-functional expertise built across enterprise and startup environments, spanning strategy through execution.</p>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="sg-title">Product & Strategy</div>
+      <span class="skill-tag">Product Strategy</span>
+      <span class="skill-tag">Roadmapping</span>
+      <span class="skill-tag">GTM Strategy</span>
+      <span class="skill-tag">Pricing & Monetization</span>
+      <span class="skill-tag">Competitive Analysis</span>
+      <span class="skill-tag">Business Case Dev</span>
+      <span class="skill-tag">Portfolio Management</span>
+      <span class="skill-tag">Market Segmentation</span>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Execution & Delivery</div>
+      <span class="skill-tag">Agile / SAFe / Scrum</span>
+      <span class="skill-tag">End-to-End Lifecycle</span>
+      <span class="skill-tag">Stakeholder Management</span>
+      <span class="skill-tag">UX Research</span>
+      <span class="skill-tag">Customer Discovery</span>
+      <span class="skill-tag">Digital Transformation</span>
+      <span class="skill-tag">Global Launches</span>
+      <span class="skill-tag">SDLC</span>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Domain Knowledge</div>
+      <span class="skill-tag">Digital Twin / BIM</span>
+      <span class="skill-tag">OPEN BIM Standards</span>
+      <span class="skill-tag">InsurTech</span>
+      <span class="skill-tag">Capital Markets</span>
+      <span class="skill-tag">Telematics / UBI</span>
+      <span class="skill-tag">ESG Analytics</span>
+      <span class="skill-tag">Financial Compliance</span>
+      <span class="skill-tag">AEC/O Platforms</span>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Leadership</div>
+      <span class="skill-tag">Global Team Building</span>
+      <span class="skill-tag">Team Mentoring</span>
+      <span class="skill-tag">C-Suite Alignment</span>
+      <span class="skill-tag">Cross-functional Lead</span>
+      <span class="skill-tag">Capability Building</span>
+      <span class="skill-tag">Public Speaking</span>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Analytics & Data</div>
+      <span class="skill-tag">Pendo</span>
+      <span class="skill-tag">Google Analytics</span>
+      <span class="skill-tag">Financial Modelling</span>
+      <span class="skill-tag">Forecasting</span>
+      <span class="skill-tag">Data-Driven Decisions</span>
+      <span class="skill-tag">KPI Frameworks</span>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Tools</div>
+      <span class="skill-tag">Jira</span>
+      <span class="skill-tag">Azure DevOps</span>
+      <span class="skill-tag">Miro</span>
+      <span class="skill-tag">Balsamiq</span>
+      <span class="skill-tag">Visio</span>
+      <span class="skill-tag">Trello</span>
+      <span class="skill-tag">BIM Tools</span>
+      <span class="skill-tag">Point Clouds</span>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="s-tag">Education & Certifications</div>
+  <h2 class="s-title">Credentials.</h2>
+  <p class="s-sub">Formal education anchored by industry-recognised certifications across product, agile, and leadership.</p>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-issuer">ISB Executive Education</div>
+      <div class="cert-name">Product Management Certification</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Scrum Alliance</div>
+      <div class="cert-name">Certified Scrum Product Owner (CSPO)</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Scrum Alliance</div>
+      <div class="cert-name">Certified Scrum Master (CSM)</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Axelos Global</div>
+      <div class="cert-name">ITIL v3 Certification</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Axelos Global</div>
+      <div class="cert-name">PRINCE2 Project Management</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Toastmasters International</div>
+      <div class="cert-name">Competent Leadership Award</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Symbiosis · AICTE · Pune</div>
+      <div class="cert-name">PGDBA — Finance</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Osmania University · Hyderabad</div>
+      <div class="cert-name">B.Com (Honours) — Loyola Academy</div>
+    </div>
+    <div class="cert-card" style="border-color:var(--gold-bg);background:var(--gold-bg)">
+      <div class="cert-issuer" style="color:var(--gold)">Recognition</div>
+      <div class="cert-name" style="color:var(--gold2)">Employee of the Year · Best Project · Multiple Innovation Awards at Broadridge, Ness & Value Momentum</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="s-tag">Career Arc</div>
+  <h2 class="s-title">The journey.</h2>
+  <p class="s-sub">15+ years from capital markets analyst to enterprise product leader — each chapter building on the last.</p>
+  <div class="tl-items">
+    <div class="tl-item">
+      <div class="tl-year">2023 – Present</div>
+      <div class="tl-company">Nemetschek Group</div>
+      <div class="tl-role">Product Manager · AEC/O Digital Twin Platforms</div>
+      <div class="tl-outcome">Digital twin for global facility portfolios · OPEN BIM champion</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2017 – 2023</div>
+      <div class="tl-company">Value Momentum Software Services</div>
+      <div class="tl-role">Senior Domain Lead – Product Management & Strategy</div>
+      <div class="tl-outcome">$5–10M savings for GEICO · 60% cyber risk reduction</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2016 – 2017</div>
+      <div class="tl-company">Ness Technologies</div>
+      <div class="tl-role">Lead Business Analyst · Automotive</div>
+      <div class="tl-outcome">+56% retention via telematics UBI framework</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2009 – 2016</div>
+      <div class="tl-company">Broadridge Financial Solutions</div>
+      <div class="tl-role">Business Analyst & Team Lead · Capital Markets</div>
+      <div class="tl-outcome">Fortune 500 proxy platforms · 3-continent delivery</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="s-tag" style="justify-content:center">Get in Touch</div>
+    <div class="contact-big">Let's build<br/>something <em>great.</em></div>
+    <p class="contact-sub">Open to senior product leadership roles, advisory opportunities, consulting engagements, and collaborations. Always happy to connect with fellow PMs and builders.</p>
+    <div class="contact-grid">
+      <a href="mailto:chandanpathak006@gmail.com" class="contact-link">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Email Me
+      </a>
+      <a href="https://linkedin.com/in/pathak619" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://cp8585.gumroad.com/l/innercircle" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        CP Inner Circle
+      </a>
+      <a href="resume.html" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15h8v2H8v-2zm0-4h8v2H8v-2z"/></svg>
+        Download CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Chandan Pathak &nbsp;·&nbsp; Product Leader</span>
+  <span>
+    <a href="https://linkedin.com/in/pathak619" target="_blank">LinkedIn</a>
+    &nbsp;·&nbsp;
+    <a href="resume.html" target="_blank">Resume</a>
+    &nbsp;·&nbsp;
+    <a href="https://cp8585.gumroad.com/l/innercircle" target="_blank">Gumroad</a>
+  </span>
+</footer>
+
+<script>
+function showExp(id, el) {
+  document.querySelectorAll('.exp-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.exp-nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('exp-' + id).classList.add('active');
+  el.classList.add('active');
+}
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+// Smooth active nav highlight on scroll
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : '';
+  });
+});
+</script>
+</body>
+</html>
