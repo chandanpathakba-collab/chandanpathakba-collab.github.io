@@ -9,253 +9,346 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#09090E;--bg2:#111118;--bg3:#18181F;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);--gold:#C8A45A;--gold2:#E2C47C;--gold-bg:rgba(200,164,90,0.09);--text:#EDE8DF;--muted:#85859A;--muted2:#4A4A5C}
+:root{
+  --bg:#09090E;--bg2:#111118;--bg3:#18181F;--bg4:#1F1F28;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --gold:#C8A45A;--gold2:#E2C47C;--gold-bg:rgba(200,164,90,0.09);
+  --text:#EDE8DF;--muted:#85859A;--muted2:#4A4A5C;--teal:#38C9B0;
+  --rule:#C8A45A;
+}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-size:13px;line-height:1.6;overflow-x:hidden}
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 40px;border-bottom:0.5px solid var(--border);background:var(--bg2)}
-.topbar-left a{color:var(--gold);text-decoration:none;font-size:12px}
-.btn-back{padding:7px 16px;background:transparent;border:0.5px solid var(--border2);border-radius:4px;color:var(--text);font-size:12px;cursor:pointer;text-decoration:none;font-family:'Sora',sans-serif;transition:all 0.2s}
-.btn-back:hover{border-color:var(--gold);color:var(--gold)}
-.btn-print{padding:7px 16px;background:var(--gold);border:none;border-radius:4px;color:var(--bg);font-size:12px;font-weight:600;cursor:pointer;font-family:'Sora',sans-serif}
+body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-size:13px;line-height:1.65;overflow-x:hidden}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:13px 40px;background:var(--bg2);border-bottom:0.5px solid var(--border);position:sticky;top:0;z-index:100}
+.topbar a.back{color:var(--gold);text-decoration:none;font-size:12px}
 .topbar-right{display:flex;gap:10px}
+.btn-back{padding:7px 16px;background:transparent;border:0.5px solid var(--border2);border-radius:4px;color:var(--text);font-size:12px;text-decoration:none;transition:all 0.2s}
+.btn-back:hover{border-color:var(--gold);color:var(--gold)}
+.btn-print{padding:7px 16px;background:var(--gold);border:none;border-radius:4px;color:var(--bg);font-size:12px;font-weight:600;cursor:pointer;font-family:'Sora',sans-serif;transition:background 0.2s}
+.btn-print:hover{background:var(--gold2)}
+
 /* AWARD STRIP */
-.award-strip{background:linear-gradient(90deg,rgba(200,164,90,0.13),rgba(200,164,90,0.05));border-bottom:0.5px solid rgba(200,164,90,0.2);padding:8px 40px;font-size:11px;color:var(--gold2);display:flex;align-items:center;gap:8px}
-.resume-page{max-width:900px;margin:24px auto;background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;overflow:hidden}
-.resume-header{padding:36px 48px;border-bottom:0.5px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
-.rh-name{font-size:34px;font-weight:600;letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
-.rh-name em{font-style:normal;color:var(--gold)}
-.rh-title{font-size:13px;color:var(--muted);margin-bottom:14px;font-weight:300}
-.rh-contact{display:flex;flex-wrap:wrap;gap:14px}
-.rh-ci{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)}
-.rh-ci a{color:var(--gold);text-decoration:none}
-.rh-portfolio{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);margin-top:8px;display:block}
-.rh-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;text-align:right;min-width:180px}
-.rh-stat-num{font-size:22px;font-weight:600;color:var(--gold);letter-spacing:-0.02em;line-height:1}
-.rh-stat-label{font-size:10px;color:var(--muted);margin-top:2px}
-.summary-bar{padding:18px 48px;background:var(--bg3);border-bottom:0.5px solid var(--border)}
-.summary-text{font-size:12px;color:var(--muted);line-height:1.8;max-width:760px}
-.summary-text strong{color:var(--text);font-weight:500}
-.top-skills-strip{padding:12px 48px;background:var(--bg2);border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.tss-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted2);margin-right:4px}
-.tss-chip{font-size:10px;padding:3px 10px;background:var(--gold-bg);border:0.5px solid rgba(200,164,90,0.22);border-radius:20px;color:var(--gold2)}
-.resume-body{display:grid;grid-template-columns:1fr 230px;gap:0}
-.col-main{padding:28px 36px 28px 48px;border-right:0.5px solid var(--border)}
-.col-side{padding:28px 28px}
-.rsec{margin-bottom:24px}
-.rsec:last-child{margin-bottom:0}
-.rsec-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.rsec-title::after{content:'';flex:1;height:0.5px;background:var(--border)}
-.exp-item{margin-bottom:18px;padding-bottom:18px;border-bottom:0.5px solid var(--border)}
-.exp-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.exp-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
-.exp-co{font-size:14px;font-weight:600;letter-spacing:-0.01em}
-.exp-period{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap}
+.award-strip{background:linear-gradient(90deg,rgba(200,164,90,0.13),rgba(200,164,90,0.04));border-bottom:0.5px solid rgba(200,164,90,0.2);padding:8px 40px;font-size:11px;color:var(--gold2);display:flex;align-items:center;gap:8px}
+
+/* PAGE */
+.resume-page{max-width:920px;margin:28px auto 48px;background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;overflow:hidden}
+
+/* HEADER */
+.r-header{padding:36px 48px 28px;border-bottom:0.5px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start}
+.r-name{font-size:36px;font-weight:600;letter-spacing:-0.03em;line-height:1;margin-bottom:6px}
+.r-name em{font-style:normal;color:var(--gold)}
+.r-title{font-size:13px;color:var(--muted);font-weight:300;margin-bottom:16px}
+.r-contact{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:8px}
+.r-ci{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)}
+.r-ci a{color:var(--gold);text-decoration:none}
+.r-portfolio{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);margin-top:6px;display:block}
+.r-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:right;min-width:190px}
+.r-stat-num{font-size:24px;font-weight:600;color:var(--gold);letter-spacing:-0.02em;line-height:1}
+.r-stat-label{font-size:10px;color:var(--muted);margin-top:3px}
+
+/* SUMMARY */
+.r-summary{padding:18px 48px;background:var(--bg3);border-bottom:0.5px solid var(--border);font-size:12px;color:var(--muted);line-height:1.85}
+.r-summary strong{color:var(--text);font-weight:500}
+
+/* TOP SKILLS */
+.r-topskills{padding:11px 48px;background:var(--bg2);border-bottom:0.5px solid var(--border);display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.ts-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted2);margin-right:2px;flex-shrink:0}
+.ts-chip{font-size:10px;padding:3px 10px;background:var(--gold-bg);border:0.5px solid rgba(200,164,90,0.22);border-radius:20px;color:var(--gold2);white-space:nowrap}
+
+/* BODY: two columns */
+.r-body{display:grid;grid-template-columns:1fr 240px}
+
+/* MAIN COL */
+.r-main{padding:28px 32px 28px 48px;border-right:0.5px solid var(--border)}
+.r-sec{margin-bottom:26px}
+.r-sec:last-child{margin-bottom:0}
+.r-sec-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.r-sec-title::after{content:'';flex:1;height:0.5px;background:var(--border)}
+
+/* EXPERIENCE */
+.exp-block{margin-bottom:18px;padding-bottom:18px;border-bottom:0.5px solid var(--border)}
+.exp-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.exp-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.exp-co{font-size:14px;font-weight:600;letter-spacing:-0.01em;color:var(--text)}
+.exp-dt{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap}
 .exp-role{font-size:11px;color:var(--gold);font-family:'DM Mono',monospace;margin-bottom:8px}
-.exp-pts{list-style:none}
-.exp-pts li{font-size:12px;color:var(--muted);padding:4px 0 4px 14px;position:relative;line-height:1.6}
-.exp-pts li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:10px;top:5px}
-.badge{display:inline-block;background:var(--gold-bg);color:var(--gold);font-family:'DM Mono',monospace;font-size:10px;padding:1px 6px;border-radius:2px;margin-left:4px}
-.side-item{margin-bottom:8px;padding:10px 12px;background:var(--bg3);border:0.5px solid var(--border);border-radius:4px}
-.side-item-name{font-size:12px;font-weight:500;line-height:1.4}
-.side-item-sub{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px}
-.skill-tags{display:flex;flex-wrap:wrap;gap:5px}
-.skill-t{font-size:11px;padding:3px 8px;background:rgba(255,255,255,0.03);border:0.5px solid var(--border);border-radius:3px;color:var(--muted)}
-.portfolio-cta{margin:20px 48px 28px;padding:18px 22px;background:var(--gold-bg);border:0.5px solid rgba(200,164,90,0.2);border-radius:6px;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.pcta-text{font-size:13px;font-weight:500}
-.pcta-sub{font-size:11px;color:var(--muted);margin-top:3px}
-.pcta-url{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);text-decoration:none;border:0.5px solid rgba(200,164,90,0.3);padding:6px 14px;border-radius:3px;white-space:nowrap;transition:all 0.2s}
-.pcta-url:hover{background:var(--gold);color:var(--bg)}
+.exp-award{font-size:11px;color:var(--gold2);font-weight:500;margin-bottom:8px}
+.exp-pts{list-style:none;padding:0}
+.exp-pts li{font-size:12px;color:var(--muted);padding:4px 0 4px 16px;position:relative;line-height:1.65}
+.exp-pts li::before{content:'•';position:absolute;left:2px;color:var(--gold);font-size:14px;top:2px;line-height:1}
+
+/* SKILLS */
+.sk-group{margin-bottom:14px}
+.sk-group:last-child{margin-bottom:0}
+.sk-heading{font-size:11px;font-weight:600;color:var(--text);margin-bottom:5px}
+.sk-pts{list-style:none;padding:0}
+.sk-pts li{font-size:11px;color:var(--muted);padding:2px 0 2px 14px;position:relative;line-height:1.55}
+.sk-pts li::before{content:'•';position:absolute;left:1px;color:var(--gold);font-size:12px;top:1px;line-height:1}
+
+/* SIDE COL */
+.r-side{padding:28px 28px}
+.side-sec{margin-bottom:22px}
+.side-sec:last-child{margin-bottom:0}
+.side-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.side-title::after{content:'';flex:1;height:0.5px;background:var(--border)}
+.side-pts{list-style:none;padding:0}
+.side-pts li{font-size:11px;color:var(--muted);padding:3px 0 3px 14px;position:relative;line-height:1.6}
+.side-pts li::before{content:'•';position:absolute;left:1px;color:var(--gold);font-size:12px;top:2px;line-height:1}
+.side-pts li strong{color:var(--text);font-weight:500}
+.side-sub{font-size:10px;color:var(--muted2);margin-top:1px;padding-left:14px}
+.side-gap{height:10px}
+.side-heading{font-size:11px;font-weight:600;color:var(--text);margin:10px 0 5px}
+.side-heading:first-child{margin-top:0}
+.portfolio-link{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);word-break:break-all;line-height:1.5;margin-top:4px;display:block}
+.portfolio-link:hover{color:var(--gold2)}
+
+/* FOOTER BAR */
+.r-footer{padding:14px 48px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--bg3)}
+.r-footer-note{font-size:11px;color:var(--muted2)}
+.r-footer-link{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-decoration:none}
+.r-footer-link:hover{color:var(--gold)}
+
+/* PRINT */
 @media print{
-  .topbar,.award-strip{display:none}
+  .topbar,.award-strip,.r-footer{display:none}
   .resume-page{margin:0;border:none;border-radius:0;max-width:100%}
   body{background:#fff;color:#111}
-  :root{--bg:#fff;--bg2:#fff;--bg3:#f5f5f5;--text:#111;--muted:#555;--muted2:#888;--gold:#8B6A2A;--border:rgba(0,0,0,0.1)}
-  .portfolio-cta{display:none}
+  :root{--bg:#fff;--bg2:#fff;--bg3:#f7f7f7;--text:#111;--muted:#444;--muted2:#888;--gold:#8B6A2A;--border:rgba(0,0,0,0.1)}
 }
 @media(max-width:720px){
   .topbar{padding:12px 16px}
-  .resume-header{grid-template-columns:1fr;padding:20px}
-  .rh-stats{grid-template-columns:repeat(4,1fr);text-align:left}
-  .summary-bar,.top-skills-strip{padding:14px 20px}
-  .resume-body{grid-template-columns:1fr}
-  .col-main{padding:20px;border-right:none;border-bottom:0.5px solid var(--border)}
-  .col-side{padding:20px}
-  .portfolio-cta{margin:16px 20px 20px;flex-direction:column;text-align:center}
+  .r-header{grid-template-columns:1fr;padding:20px}
+  .r-stats{grid-template-columns:repeat(4,1fr);text-align:left}
+  .r-summary,.r-topskills{padding:14px 20px}
+  .r-body{grid-template-columns:1fr}
+  .r-main{padding:20px;border-right:none;border-bottom:0.5px solid var(--border)}
+  .r-side{padding:20px}
+  .r-footer{padding:12px 20px}
 }
 </style>
 </head>
 <body>
+
 <div class="topbar">
-  <div class="topbar-left"><a href="index.html">← Back to Portfolio</a></div>
+  <a href="index.html" class="back">← Back to Portfolio</a>
   <div class="topbar-right">
     <a href="index.html" class="btn-back">Full Portfolio</a>
     <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
   </div>
 </div>
-<div class="award-strip">🏆 <strong>Certificate of Excellence 2025</strong> — Awarded by the CEO of Nemetschek Group for outstanding product leadership and innovation.</div>
+
+<div class="award-strip">🏆 <strong>Certificate of Excellence 2025</strong> &nbsp;·&nbsp; Awarded by the CEO of Nemetschek Group for outstanding product leadership and innovation.</div>
 
 <div class="resume-page">
-  <div class="resume-header">
+
+  <!-- HEADER -->
+  <div class="r-header">
     <div>
-      <div class="rh-name">Chandhan <em>Pathak</em></div>
-      <div class="rh-title">Seasoned Product Manager &nbsp;·&nbsp; Digital Transformation Leader &nbsp;·&nbsp; AI-Native PM</div>
-      <div class="rh-contact">
-        <span class="rh-ci">✉ <a href="mailto:chandanpathak006@gmail.com">chandanpathak006@gmail.com</a></span>
-        <span class="rh-ci">✆ +91-9573153950</span>
-        <span class="rh-ci">🔗 <a href="https://www.linkedin.com/in/pathak619/" target="_blank" rel="noopener noreferrer">linkedin.com/in/pathak619</a></span>
+      <div class="r-name">Chandhan <em>Pathak</em></div>
+      <div class="r-title">AI-Generalist PM &nbsp;·&nbsp; Product Manager &nbsp;·&nbsp; Digital Transformation Leader</div>
+      <div class="r-contact">
+        <span class="r-ci">✉ <a href="mailto:chandanpathak006@gmail.com">chandanpathak006@gmail.com</a></span>
+        <span class="r-ci">☎ +91-9573153950</span>
+        <span class="r-ci"><a href="https://www.linkedin.com/in/pathak619/" target="_blank" rel="noopener">linkedin.com/in/pathak619</a></span>
       </div>
-      <a href="index.html" class="rh-portfolio">Portfolio: chandanpathakba-collab.github.io/work.chandhanpathak</a>
+      <a href="index.html" class="r-portfolio">Portfolio and Case Studies &nbsp;→&nbsp; chandanpathakba-collab.github.io/work.chandhanpathak</a>
     </div>
-    <div class="rh-stats">
-      <div><div class="rh-stat-num">15+</div><div class="rh-stat-label">Yrs experience</div></div>
-      <div><div class="rh-stat-num">4</div><div class="rh-stat-label">Industries</div></div>
-      <div><div class="rh-stat-num">$10M+</div><div class="rh-stat-label">Savings driven</div></div>
-      <div><div class="rh-stat-num">56%</div><div class="rh-stat-label">Retention lift</div></div>
+    <div class="r-stats">
+      <div><div class="r-stat-num">15+</div><div class="r-stat-label">Years in Product</div></div>
+      <div><div class="r-stat-num">$10M+</div><div class="r-stat-label">Savings Driven</div></div>
+      <div><div class="r-stat-num">4</div><div class="r-stat-label">Industries</div></div>
+      <div><div class="r-stat-num">56%</div><div class="r-stat-label">Retention Lift</div></div>
     </div>
   </div>
 
-  <div class="summary-bar">
-    <div class="summary-text"><strong>Seasoned Product Management Leader</strong> with 15+ years driving product strategy, execution, and innovation across AEC/O, Insurance, Automotive, and Capital Markets. Recognised with the <strong>Certificate of Excellence 2025 by the CEO of Nemetschek Group</strong>. Proven delivering <strong>$5–10M cost savings</strong>, +15% acquisition growth, and 56% retention lifts. Expert in digital twin, OPEN BIM, enterprise SaaS, Agile/SAFe, and AI-native product development. Mentor, speaker, and creator of the <strong>CP Inner Circle</strong> PM resource vault.</div>
+  <!-- SUMMARY -->
+  <div class="r-summary">
+    Product Manager with 15 years of experience owning products from concept to scale across AEC/O, Insurance, Automotive, and Capital Markets. Recognised with the <strong>Certificate of Excellence 2025 by the CEO of Nemetschek Group.</strong> Comfortable working at the intersection of business strategy, engineering, and user needs in both B2B and B2C environments. Brings strong working knowledge of AI tools, agents, and LLMs applied practically across the product lifecycle. Known for clear thinking, getting stakeholder alignment, and shipping products that move the needle.
   </div>
 
-  <div class="top-skills-strip">
-    <span class="tss-label">Top Skills</span>
-    <span class="tss-chip">Product Management</span>
-    <span class="tss-chip">Problem Solving</span>
-    <span class="tss-chip">Cross-functional Leadership</span>
-    <span class="tss-chip">Marketing Strategy</span>
-    <span class="tss-chip">Product Innovation</span>
-    <span class="tss-chip">Critical Thinking</span>
-    <span class="tss-chip">AI Generalist</span>
-    <span class="tss-chip">Idea Person</span>
+  <!-- TOP SKILLS -->
+  <div class="r-topskills">
+    <span class="ts-label">Top Skills</span>
+    <span class="ts-chip">Product Management</span>
+    <span class="ts-chip">Problem Solving</span>
+    <span class="ts-chip">Cross-functional Leadership</span>
+    <span class="ts-chip">Marketing Strategy</span>
+    <span class="ts-chip">Product Innovation</span>
+    <span class="ts-chip">Critical Thinking</span>
+    <span class="ts-chip">AI Generalist</span>
+    <span class="ts-chip">Idea Person</span>
   </div>
 
-  <div class="resume-body">
-    <div class="col-main">
-      <div class="rsec">
-        <div class="rsec-title">Professional Experience</div>
-        <div class="exp-item">
-          <div class="exp-row"><div class="exp-co">Nemetschek Group</div><div class="exp-period">Oct 2023 – Present</div></div>
-          <div class="exp-role">Product Manager · AEC/O · Digital Twin &nbsp;🏆 CEO Certificate of Excellence 2025</div>
+  <!-- BODY -->
+  <div class="r-body">
+
+    <!-- MAIN COLUMN -->
+    <div class="r-main">
+
+      <!-- EXPERIENCE -->
+      <div class="r-sec">
+        <div class="r-sec-title">Professional Experience</div>
+
+        <div class="exp-block">
+          <div class="exp-top">
+            <div class="exp-co">Nemetschek Group</div>
+            <div class="exp-dt">Oct 2023 – Present</div>
+          </div>
+          <div class="exp-role">Product Manager &nbsp;·&nbsp; AEC/O and Digital Twin</div>
+          <div class="exp-award">🏆 Certificate of Excellence 2025, awarded by the CEO of Nemetschek Group.</div>
           <ul class="exp-pts">
-            <li>Led digital twin platform strategy covering predictive maintenance, ESG analytics & operational cost reduction for global facility portfolios.</li>
-            <li>Defined multi-year roadmap, championed OPEN BIM standards, and conducted competitive analysis vs. <span class="badge">Autodesk</span> <span class="badge">IBM Maximo</span> <span class="badge">Planon</span> <span class="badge">Tririga</span>.</li>
-            <li>Built C-suite alignment across global teams; designed inclusive asset digitisation UX for non-technical & elderly field users.</li>
+            <li>Owned end-to-end product strategy for a digital twin platform covering predictive maintenance, ESG analytics, and operational cost reduction for global enterprise facility portfolios. Defined multi-year roadmap and maintained alignment across distributed engineering, design, and business teams.</li>
+            <li>Championed OPEN BIM open standards as a key differentiator, securing competitive advantage against Autodesk, IBM Maximo, Planon, and Tririga. Shipped real-time ROI, compliance, and ESG dashboards that gave enterprise clients portfolio-wide visibility for the first time.</li>
+            <li>Built C-suite alignment across four global business units and designed inclusive field-user workflows that made the platform accessible to non-technical and elderly operators, expanding the addressable market.</li>
           </ul>
         </div>
-        <div class="exp-item">
-          <div class="exp-row"><div class="exp-co">Value Momentum Software Services</div><div class="exp-period">Dec 2017 – Sep 2023</div></div>
-          <div class="exp-role">Senior Domain Lead, Product Management &amp; Strategy · Insurance & FinServ</div>
+
+        <div class="exp-block">
+          <div class="exp-top">
+            <div class="exp-co">Value Momentum Software Services</div>
+            <div class="exp-dt">Dec 2017 – Sep 2023</div>
+          </div>
+          <div class="exp-role">Senior Domain Lead, Product Management and Strategy &nbsp;·&nbsp; Insurance and FinServ</div>
           <ul class="exp-pts">
-            <li>Drove solutions for GEICO: <span class="badge">$5–10M annual savings</span> · <span class="badge">+15% acquisition</span> · <span class="badge">+10% engagement</span> · <span class="badge">+5% referral sales</span>.</li>
-            <li>Defined DR & security strategy reducing cyber risk by <span class="badge">−60%</span>; led pricing & GTM with C-suite and engineering leadership.</li>
-            <li>Mentored cross-functional PM & BA teams; built culture of ownership, data-driven decisions, and product innovation.</li>
+            <li>Drove solutions for GEICO delivering <strong>$5–10M in annual savings</strong>, 15% customer acquisition growth, 10% higher user engagement, and 5% uplift in referral sales. Owned roadmap, UX, pricing, and GTM strategy end-to-end in close collaboration with C-suite, engineering, and sales.</li>
+            <li>Reduced cyber risk by <strong>60%</strong> through a new disaster recovery and security strategy with zero service disruption. Introduced outcome-led roadmapping that tied every initiative directly to a business metric.</li>
+            <li>Mentored product and BA teams across six years, building a culture of ownership, data-driven decisions, and consistent delivery.</li>
           </ul>
         </div>
-        <div class="exp-item">
-          <div class="exp-row"><div class="exp-co">Ness Technologies</div><div class="exp-period">Apr 2016 – Nov 2017</div></div>
-          <div class="exp-role">Lead Business Analyst · Automotive</div>
+
+        <div class="exp-block">
+          <div class="exp-top">
+            <div class="exp-co">Ness Technologies</div>
+            <div class="exp-dt">Apr 2016 – Nov 2017</div>
+          </div>
+          <div class="exp-role">Lead Business Analyst &nbsp;·&nbsp; Automotive</div>
           <ul class="exp-pts">
-            <li>Designed a telematics UBI framework achieving <span class="badge">+56% customer retention YoY</span>; advanced vehicle registration analytics.</li>
+            <li>Designed a Usage-Based Insurance (UBI) framework using telematics data and achieved a <strong>56% improvement in customer retention YoY.</strong> Advocated for a behaviour-reward model over penalty-based pricing, which improved opt-in rates and built compounding loyalty over time.</li>
+            <li>Built advanced analytics for vehicle registration and insurance pricing models, improving accuracy and keeping the business competitive in the market.</li>
           </ul>
         </div>
-        <div class="exp-item">
-          <div class="exp-row"><div class="exp-co">Broadridge Financial Solutions</div><div class="exp-period">Aug 2009 – Mar 2016</div></div>
-          <div class="exp-role">Business Analyst & Team Lead · Capital Markets</div>
+
+        <div class="exp-block">
+          <div class="exp-top">
+            <div class="exp-co">Broadridge Financial Solutions</div>
+            <div class="exp-dt">Aug 2009 – Mar 2016</div>
+          </div>
+          <div class="exp-role">Business Analyst and Team Lead &nbsp;·&nbsp; Capital Markets &nbsp;·&nbsp; 7 Years</div>
           <ul class="exp-pts">
-            <li>Transformed Fortune 500 financial proxy platforms across North America, Europe & APAC; grew from IC to Team Lead managing BA teams.</li>
+            <li>Transformed financial proxy voting platforms for Fortune 500 clients across North America, Europe, and APAC. Introduced a user-journey-first approach in a compliance-heavy environment, reducing support load and strengthening client relationships globally.</li>
+            <li>Grew from individual contributor to Team Lead over seven years, managing Business Analysts across multiple concurrent enterprise workstreams and building structured delivery practices still in use today.</li>
           </ul>
         </div>
       </div>
 
-      <div class="rsec">
-        <div class="rsec-title">AI & Creative Tools</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px">
-          <span class="skill-t">Claude / Claude Code</span>
-          <span class="skill-t">Cursor</span>
-          <span class="skill-t">Lovable</span>
-          <span class="skill-t">Perplexity</span>
-          <span class="skill-t">Gemini</span>
-          <span class="skill-t">NotebookLM</span>
-          <span class="skill-t">Notion AI</span>
-          <span class="skill-t">AI Agents & RAGs</span>
-          <span class="skill-t">Prompt Engineering</span>
-          <span class="skill-t">Audio/Video Gen AI</span>
-          <span class="skill-t">Canva</span>
-          <span class="skill-t">Adobe Suite</span>
+      <!-- SKILLS -->
+      <div class="r-sec">
+        <div class="r-sec-title">Skills</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 24px">
+          <div>
+            <div class="sk-group">
+              <div class="sk-heading">Product</div>
+              <ul class="sk-pts">
+                <li>Strategy, Roadmapping, GTM, Competitive Analysis</li>
+                <li>Feature Prioritisation, OKRs and KPIs, 0-to-1 Launches</li>
+                <li>Backlog Management, Product-Market Fit</li>
+              </ul>
+            </div>
+            <div class="sk-group">
+              <div class="sk-heading">Methodology</div>
+              <ul class="sk-pts">
+                <li>Agile, Scrum, SAFe, Kanban</li>
+                <li>Design Thinking, User Research, Journey Mapping</li>
+                <li>Data-Driven Decision Making</li>
+              </ul>
+            </div>
+            <div class="sk-group">
+              <div class="sk-heading">Domain</div>
+              <ul class="sk-pts">
+                <li>Digital Twin, BIM, OPEN BIM, IoT Sensors</li>
+                <li>ESG Analytics, InsurTech, UBI, Telematics</li>
+                <li>Capital Markets, Enterprise SaaS, B2B and B2C</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="sk-group">
+              <div class="sk-heading">AI Tools</div>
+              <ul class="sk-pts">
+                <li>Claude, Claude Code, Cursor, Lovable</li>
+                <li>Perplexity, Gemini, NotebookLM, Notion AI</li>
+                <li>AI Agents, RAG Systems, Prompt Engineering</li>
+                <li>Audio and Video Generation AI</li>
+              </ul>
+            </div>
+            <div class="sk-group">
+              <div class="sk-heading">Platforms and Tools</div>
+              <ul class="sk-pts">
+                <li>Jira, Miro, Azure DevOps, Confluence</li>
+                <li>Pendo, Google Analytics, Notion</li>
+                <li>Canva, Adobe Suite</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-side">
-      <div class="rsec">
-        <div class="rsec-title">Certifications</div>
-        <div class="side-item"><div class="side-item-name">Product Management</div><div class="side-item-sub">ISB Executive Education</div></div>
-        <div class="side-item"><div class="side-item-name">CSPO · CSM</div><div class="side-item-sub">Scrum Alliance</div></div>
-        <div class="side-item"><div class="side-item-name">ITIL v3 · PRINCE2</div><div class="side-item-sub">Axelos Global</div></div>
-        <div class="side-item"><div class="side-item-name">Competent Leadership</div><div class="side-item-sub">Toastmasters International</div></div>
+    </div><!-- /r-main -->
+
+    <!-- SIDE COLUMN -->
+    <div class="r-side">
+
+      <div class="side-sec">
+        <div class="side-title">Certifications</div>
+        <div class="side-heading" style="margin-top:0">Certifications</div>
+        <ul class="side-pts">
+          <li>Product Management<div class="side-sub">ISB Executive Education</div></li>
+          <li>CSPO and CSM<div class="side-sub">Scrum Alliance</div></li>
+          <li>ITIL v3 and PRINCE2<div class="side-sub">Axelos Global</div></li>
+          <li>Competent Leadership<div class="side-sub">Toastmasters International</div></li>
+        </ul>
       </div>
-      <div class="rsec">
-        <div class="rsec-title">Education</div>
-        <div class="side-item"><div class="side-item-name">PGDBA – Finance</div><div class="side-item-sub">Symbiosis · AICTE · Pune</div></div>
-        <div class="side-item"><div class="side-item-name">B.Com (Honours)</div><div class="side-item-sub">Loyola · Osmania Univ.</div></div>
+
+      <div class="side-sec">
+        <div class="side-title">Education</div>
+        <ul class="side-pts">
+          <li>PGDBA in Finance<div class="side-sub">Symbiosis International University, Pune</div></li>
+          <li>B.Com Honours<div class="side-sub">Osmania University, Hyderabad</div></li>
+        </ul>
       </div>
-      <div class="rsec">
-        <div class="rsec-title">Core Skills</div>
-        <div class="skill-tags">
-          <span class="skill-t">Product Strategy</span>
-          <span class="skill-t">Product Innovation</span>
-          <span class="skill-t">Marketing Strategy</span>
-          <span class="skill-t">Critical Thinking</span>
-          <span class="skill-t">Roadmapping</span>
-          <span class="skill-t">Agile / SAFe</span>
-          <span class="skill-t">Digital Twin</span>
-          <span class="skill-t">OPEN BIM</span>
-          <span class="skill-t">GTM Strategy</span>
-          <span class="skill-t">UX Research</span>
-          <span class="skill-t">Team Leadership</span>
-          <span class="skill-t">Jira · Miro · Pendo</span>
-        </div>
+
+      <div class="side-sec">
+        <div class="side-title">Volunteering</div>
+        <ul class="side-pts">
+          <li>Toastmasters International<div class="side-sub">Education Committee and PR Team</div></li>
+        </ul>
       </div>
-      <div class="rsec">
-        <div class="rsec-title">Volunteering</div>
-        <div class="side-item">
-          <div class="side-item-name">Toastmasters International</div>
-          <div class="side-item-sub">Education Committee · PR Team</div>
-        </div>
+
+      <div class="side-sec">
+        <div class="side-title">Awards</div>
+        <ul class="side-pts">
+          <li><strong>🏆 Certificate of Excellence 2025</strong><div class="side-sub">CEO, Nemetschek Group</div></li>
+          <li>Employee of the Year, Multiple Years<div class="side-sub">Value Momentum</div></li>
+          <li>Best Project and Innovation Awards<div class="side-sub">Broadridge, Ness and Value Momentum</div></li>
+        </ul>
       </div>
-      <div class="rsec">
-        <div class="rsec-title">Awards</div>
-        <div class="side-item" style="border-color:rgba(200,164,90,0.3);background:var(--gold-bg)">
-          <div class="side-item-name" style="color:var(--gold2)">🏆 Certificate of Excellence</div>
-          <div class="side-item-sub">CEO · Nemetschek Group · 2025</div>
-        </div>
-        <div class="side-item">
-          <div class="side-item-name">Employee of the Year</div>
-          <div class="side-item-sub">Value Momentum · Multiple Years</div>
-        </div>
-        <div class="side-item">
-          <div class="side-item-name">Best Project · Innovation Awards</div>
-          <div class="side-item-sub">Broadridge · Ness · Value Momentum</div>
-        </div>
+
+      <div class="side-sec">
+        <div class="side-title">Portfolio</div>
+        <p style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:6px">Detailed case studies and full background at:</p>
+        <a href="index.html" class="portfolio-link">chandanpathakba-collab.github.io/<br/>work.chandhanpathak</a>
       </div>
-    </div>
+
+    </div><!-- /r-side -->
+  </div><!-- /r-body -->
+
+  <div class="r-footer">
+    <span class="r-footer-note">Confidential &nbsp;·&nbsp; © 2026 Chandhan Pathak</span>
+    <a href="index.html" class="r-footer-link">← Back to Portfolio</a>
   </div>
 
-  <div class="portfolio-cta">
-    <div>
-      <div class="pcta-text">Full portfolio, case studies & CP Inner Circle</div>
-      <div class="pcta-sub">Deep-dives, frameworks, and battle-tested PM resources</div>
-    </div>
-    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-      <a href="index.html" class="pcta-url">Portfolio →</a>
-      <a href="https://cp8585.gumroad.com/subscribe" target="_blank" style="font-size:11px;color:var(--muted);text-decoration:none;border:0.5px solid rgba(200,164,90,0.2);padding:6px 12px;border-radius:3px;">✉ Subscribe</a>
-    </div>
-  </div>
-</div>
+</div><!-- /resume-page -->
 
-<div style="height:32px;text-align:center;padding-top:10px;font-size:11px;color:var(--muted2)">
-  © 2025 Chandhan Pathak &nbsp;·&nbsp; <a href="index.html" style="color:var(--muted);text-decoration:none">Back to Portfolio</a>
-</div>
 </body>
 </html>
